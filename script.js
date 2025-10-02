@@ -1,3 +1,5 @@
+
+
 let number;
 let operator;
 let number2;
@@ -34,6 +36,7 @@ function display(button) {
     let display = document.querySelector("#display");
     let currentNumber = "";
     let justEvaluated = false;
+    let usedEquals = false;
 
     allButtons.forEach(button => {
         button.addEventListener("click", () => {
@@ -122,17 +125,19 @@ function display(button) {
                     number = result;
                     currentNumber = "";
                     justEvaluated = true;
+                    usedEquals = true;
                     return;
                 }
 
             } else {
                 if (!isNaN(buttonType)) {
-                    if (justEvaluated) {
+                    if (justEvaluated && usedEquals === true) {
                         number = undefined;
                         number2 = undefined;
                         operator = undefined;
                         currentNumber = "";
                         justEvaluated = false;
+                        usedEquals = false;
                     }
                     currentNumber += buttonType;
                     display.textContent = currentNumber;
