@@ -108,8 +108,7 @@ function display(button) {
                 }
 
             } else if (buttonType === "=") {
-                if (number === undefined) {
-                    display.textContent = 0;
+                if (number === undefined || operator === undefined) {
                     return;
                 }
                 number2 = currentNumber === "" ? number2 : +currentNumber;
@@ -117,8 +116,9 @@ function display(button) {
                 if (operator === "/" && number2 === 0) {
                     console.warn("Error: can't divide by zero");
                     display.textContent = "One does not simply divide by zero";
-                    return;
+                      return;
 
+                
                 } else {
                     let result = operate(number, operator, number2);
                     display.textContent = result.toFixed(1);
@@ -128,6 +128,7 @@ function display(button) {
                     usedEquals = true;
                     return;
                 }
+            
 
             } else {
                 if (!isNaN(buttonType)) {
