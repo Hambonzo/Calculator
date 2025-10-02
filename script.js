@@ -85,7 +85,7 @@ function display(button) {
                         let result = operate(number, operator, number2);
                         operator = buttonType;
                         number = result;
-                        display.textContent = result.toFixed(10);
+                        display.textContent = result.toFixed(1);
                         currentNumber = "";
                         justEvaluated = true;
                         return;
@@ -121,7 +121,7 @@ function display(button) {
 
                 } else {
                     let result = operate(number, operator, number2);
-                    display.textContent = result.toFixed(10);
+                    display.textContent = result.toFixed(1);
                     number = result;
                     currentNumber = "";
                     justEvaluated = true;
